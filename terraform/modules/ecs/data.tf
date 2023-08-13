@@ -10,7 +10,7 @@ locals {
       },
       {
         "name": "RAILS_MASTER_KEY",
-        "valueFrom": "${var.rails_master_key_arn}"
+        "valueFrom": "${var.master_key_arn}"
       },
       {
         "name":  "REDIS_URL",

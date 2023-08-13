@@ -33,7 +33,6 @@ resource "aws_security_group_rule" "web_all_https" {
   security_group_id = aws_security_group.web_lb.id
 }
 
-
 // -------------- For internal app servers --------------
 resource "aws_security_group" "web_app" {
   vpc_id      = var.vpc_id
@@ -93,7 +92,6 @@ resource "aws_security_group_rule" "from_web_app_posgres_to_web_db" {
   security_group_id        = aws_security_group.web_db.id
 }
 
-
 // -------------- For internal redis --------------
 resource "aws_security_group" "web_redis" {
   vpc_id      = var.vpc_id
@@ -134,6 +132,7 @@ resource "aws_security_group" "codebuild" {
     Terraform = "true"
   }
 }
+
 resource "aws_security_group_rule" "from_codebuild_to_db" {
   type                     = "ingress"
   from_port                = 5432

@@ -10,7 +10,7 @@ module AwesomeNoteApp
     config.time_zone = 'Japan'
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :en
-    config.i18n.available_locales = %i[en]
+    config.i18n.available_locales = %i[en ja]
     config.paths.add 'lib', eager_load: true
     config.generators do |g|
       g.test_framework :rspec

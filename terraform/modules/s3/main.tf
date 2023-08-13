@@ -437,7 +437,7 @@ EOF
 # Waf bucket
 module "waf_bucket_delivery" {
   source        = "terraform-aws-modules/s3-bucket/aws"
-  version       = "v1.20.0"
+  version       = "3.14.0"
   bucket        = "aws-waf-logs-${var.name}"
   acl           = "private"
   force_destroy = true

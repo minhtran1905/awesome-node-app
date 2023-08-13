@@ -1,4 +1,3 @@
-
 output "alb_sg_id" {
   description = "ID of the security group for application load balancer"
   value       = aws_security_group.web_lb.id

@@ -26,3 +26,7 @@ variable "ecs_exec_bucket_name" {
 variable "ecs_exec_kms_key_arn" {
   description = "ECS Exec kms key arn"
 }
+
+variable "iam_user_name" {
+  description = "IAM user for s3 bucket"
+}
