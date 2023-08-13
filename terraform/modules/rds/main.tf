@@ -1,8 +1,9 @@
 module "rds" {
+  version                         = "5.9.0"
   source                          = "terraform-aws-modules/rds/aws"
   identifier                      = var.name
   engine                          = "postgres"
-  engine_version                  = "14.1"
+  engine_version                  = "14.6"
   instance_class                  = var.instance_class
   create_random_password          = false
   allocated_storage               = 10

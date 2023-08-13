@@ -1,3 +1,7 @@
+locals {
+  hyphen_name = replace("${var.name}", "_", "-")
+}
+
 resource "aws_sns_topic" "alerts_ci_slack_notifications_sns_topic" {
   name = "${var.name}-ci"
 }
@@ -88,7 +92,7 @@ resource "aws_iam_role_policy_attachment" "chatbot_iam_role_policy_attachment" {
 module "chatbot" {
   source = "../chatbot"
 
-  configuration_name = "${var.name}-ci"
+  configuration_name = "${local.hyphen_name}-ci"
   iam_role_arn       = aws_iam_role.chatbot_iam_role.arn
   slack_channel_id   = var.slack_channel_id
   slack_workspace_id = var.slack_workspace_id

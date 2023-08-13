@@ -72,12 +72,12 @@ module "ecs" {
   iam_arn                            = module.iam.ecs_tasks_arn
   database_host_arn                  = module.ssm.database_host_arn
   database_password_arn              = module.ssm.database_password_arn
-  rails_master_key_arn               = module.ssm.rails_master_key_arn
+  master_key_arn                     = module.ssm.rails_master_key_arn
   env                                = var.env
   redis_address_arn                  = module.ssm.redis_address_arn
   git_token_arn                      = module.ssm.git_token_arn
   ecs_exec_kms_arn                   = module.kms.ecs_exec_kms_arn
-  ecs_exec_s3_bucket_name            = module.s3.ecs_exec_bucket_name
+  ecs_exec_s3_bucket_name            = module.s3.ecs_exec_bucket_id
   cloudwatch_log_group_ecs_exec_name = module.cloudwatch.log_group_ecs_exec_name
 }
 
@@ -168,7 +168,7 @@ module "iam" {
   codepipeline_bucket_arn = module.s3.pipeline_artifact_bucket_arn
   cloudwatch_arn          = module.cloudwatch.log_group_codebuild_arn
   ecr_arn                 = module.ecr.web_arn
-  ecs_exec_bucket_name    = module.s3.ecs_exec_bucket_name
+  ecs_exec_bucket_name    = module.s3.ecs_exec_bucket_id
   ecs_exec_kms_key_arn    = module.kms.ecs_exec_kms_arn
   iam_user_name           = var.iam_user_name
 }
@@ -268,7 +268,7 @@ module "athena" {
   athena_output_bucket_name = module.s3.athena_output_bucket_id
   athena_output_bucket_id   = module.s3.athena_output_bucket_id
   cloudtrail_bucket_name    = module.s3.cloudtrail_bucket_id
-  access_log_bucket_name    = module.s3.access_log_bucket_name
+  access_log_bucket_name    = module.s3.access_log_bucket_id
   aws_account_id            = var.aws_account_id
 }
 

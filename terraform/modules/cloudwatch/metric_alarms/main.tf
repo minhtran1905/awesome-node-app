@@ -114,7 +114,6 @@ resource "aws_cloudwatch_metric_alarm" "memory_freeable_too_low" {
   }
 }
 
-
 resource "aws_cloudwatch_metric_alarm" "db_connection_count_anomalous" {
   alarm_name                = "${var.name}_rds_anomalous_connection_count"
   comparison_operator       = "GreaterThanUpperThreshold"

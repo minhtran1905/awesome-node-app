@@ -37,8 +37,9 @@ resource "aws_elasticache_replication_group" "this" {
   }
 }
 resource "aws_elasticache_cluster" "redis" {
-  cluster_id           = var.name
-  replication_group_id = aws_elasticache_replication_group.this.id
+  cluster_id                 = var.name
+  auto_minor_version_upgrade = false
+  replication_group_id       = aws_elasticache_replication_group.this.id
   lifecycle {
     ignore_changes = [
       tags
